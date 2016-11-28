@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 import RPi.GPIO as GPIO
-import dht11
+from . import dht11
 # import time
 # import datetime
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-GPIO.cleanup()
+
 
 def gettemp():
     # initialize GPIO
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
 
     # read data using pin 4
     instance = dht11.DHT11(pin=4)
 
     result = instance.read()
+    GPIO.cleanup()
     if result.is_valid():
         keys = ["Temperature", "Humidity"]
         values = [result.temperature, result.humidity]
