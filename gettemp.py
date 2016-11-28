@@ -20,7 +20,7 @@ def gettemp():
         # print("Last valid input: " + str(datetime.datetime.now()))
         # print("Temperature: %d C" % result.temperature)
         # print("Humidity: %d %%" % result.humidity)
-        print(dict(zip(keys, values)))
+        return dict(zip(keys, values))
 
 if __name__ == "__main__":
     gettemp()
